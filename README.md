@@ -20,4 +20,5 @@ This will create a .vcd file for the module
 e.g.
 `gtkwave program_counter/program_counter_tb.vcd`
 
+Select variables to view the waveforms of in the GTKWave GUI
 

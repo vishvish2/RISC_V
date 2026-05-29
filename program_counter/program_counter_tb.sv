@@ -13,30 +13,13 @@ initial begin
     // Initialise signals
     reset = 1;
     pcnext = 32'h00000000;
-
-    #10;
-    reset = 0;
-
-    #10;
-    pcnext = 32'h00000004;
-
-    #10;
-    pcnext = 32'h00000008;
-
-    #10;
-    pcnext = 32'h0000000C;
-
-    #10;
-    pcnext = 32'h00000010;
-
-    #10;
-    reset = 1;  // Test reset again
-    pcnext = 32'h00000014;
-
-    #10;
-    reset = 0;
-    pcnext = 32'h00000020;
-
+    #10; reset = 0;
+    #5; pcnext = 32'h00000004;
+    #10; pcnext = 32'h00000006;
+    #10; pcnext = 32'h0000000C;
+    #10; pcnext = 32'h00000010;
+    #10; reset = 1; pcnext = 32'h00000018;              // Test reset again 
+    #10; reset = 0; pcnext = 32'h0000001E;
     #20;
 
     $finish;
