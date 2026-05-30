@@ -13,9 +13,10 @@ assign opcode = Instr[6:0];
 assign funct3 = Instr[14:12];
 assign funct7 = Instr[31:25];
 
+assign MemWrite = (opcode == 7'b0100011 && funct3 == 3'h2) ? 1 : 0; // only sw needs MemWrite = 1
+assign RegWrite = (opcode[5:0] == 6'b100011) ? 0 : 1;               // only sw, beq, bne, blt and bge need RegWrite = 0
+
 always_comb begin
-    MemWrite = (opcode == 7'b0100011 && funct3 == 3'h2) ? 1 : 0; // only sw needs MemWrite = 1
-    RegWrite = (opcode[5:0] == 6'b100011) ? 0 : 1;               // only sw, beq, bne, blt and bge need RegWrite = 0
 
     case (opcode)
         7'b0110011: begin
