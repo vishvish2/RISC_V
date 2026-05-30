@@ -1,0 +1,145 @@
+$date
+	Sat May 30 11:52:18 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module alu_tb $end
+$var wire 1 ! zero $end
+$var wire 1 " negative $end
+$var wire 32 # aluresult [31:0] $end
+$var reg 32 $ a [31:0] $end
+$var reg 5 % alucontrol [4:0] $end
+$var reg 32 & b [31:0] $end
+$scope module dut $end
+$var wire 32 ' A [31:0] $end
+$var wire 5 ( ALUControl [4:0] $end
+$var wire 32 ) B [31:0] $end
+$var wire 32 * y_and [31:0] $end
+$var wire 32 + y_or [31:0] $end
+$var wire 32 , y_sub [31:0] $end
+$var wire 32 - y_srl [31:0] $end
+$var wire 32 . y_slt [31:0] $end
+$var wire 32 / y_sll [31:0] $end
+$var wire 32 0 y_add [31:0] $end
+$var wire 1 ! Zero $end
+$var wire 1 " Negative $end
+$var reg 32 1 ALUResult [31:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+$end
+#0
+$dumpvars
+b1001101100 1
+b1001101100 0
+b0 /
+b1 .
+b0 -
+b11111111111111111111111001011100 ,
+b1001101100 +
+b0 *
+b1000001000 )
+b10010 (
+b1100100 '
+b1000001000 &
+b10010 %
+b1100100 $
+b1001101100 #
+0"
+0!
+$end
+#10000
+b10110 %
+b10110 (
+#20000
+1"
+b11111111111111111111111001011100 #
+b11111111111111111111111001011100 1
+b1010 %
+b1010 (
+#30000
+0"
+b1001011000 +
+b1000001000 *
+b0 .
+b1010000 #
+b1010000 1
+b10001100000 0
+b1010000 ,
+b1001011000 $
+b1001011000 '
+#40000
+b1000001000 +
+1!
+b0 #
+b0 1
+b10000010000 0
+b0 ,
+b1000001000 $
+b1000001000 '
+#50000
+b1010111100 +
+0!
+b10110100 #
+b10110100 1
+b10011000100 0
+b10110100 ,
+b1010111100 $
+b1010111100 '
+#60000
+b1010111100 #
+b1010111100 1
+b10111 %
+b10111 (
+#70000
+b1111 %
+b1111 (
+#80000
+b1000001000 #
+b1000001000 1
+b1011 %
+b1011 (
+#90000
+b1010111111 +
+b0 *
+b1010111100000 #
+b1010111100000 1
+b1000 %
+b1000 (
+b1010111111 0
+b1010111001 ,
+b1010111100000 /
+b1010111 -
+b11 &
+b11 )
+#100000
+b1010111 #
+b1010111 1
+b10100 %
+b10100 (
+#110000
+1!
+b0 #
+b0 1
+b1101 %
+b1101 (
+#120000
+0!
+b1 #
+b1 1
+b1111111100 +
+b1010101000 *
+b1 .
+b11010100100 0
+b11111111111111111111111011010100 ,
+b0 /
+b0 -
+b1111101000 &
+b1111101000 )
+#130000
