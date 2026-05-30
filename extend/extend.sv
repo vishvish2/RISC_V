@@ -12,11 +12,11 @@ assign imm4 = {{12{Instr[31]}}, Instr[19:12], Instr[20], Instr[30:21], 1'b0};
 
 always_comb begin
     case (ImmSrc)
-        3'b000: ImmExt = imm0;
-        3'b001: ImmExt = imm1;
-        3'b010: ImmExt = imm2;
-        3'b011: ImmExt = imm3;
-        3'b100: ImmExt = imm4;
+        3'b000: ImmExt = imm0;  // I-Type
+        3'b001: ImmExt = imm1;  // S-Type
+        3'b010: ImmExt = imm2;  // B-Type
+        3'b011: ImmExt = imm3;  // U-Type
+        3'b100: ImmExt = imm4;  // J-Type
 
     endcase
 end
