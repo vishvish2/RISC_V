@@ -1,23 +1,23 @@
 module control_unit (output logic MemWrite, ALUSrc, RegWrite,
-            output logic [2:0] PCSrc, ALUControl, ImmSrc,
-            output logic [1:0] ResultSrc,
-            input logic [31:0] Instr,
-            input logic Zero, Negative);
+                        output logic [4:0] ALUControl, 
+                        output logic [2:0] ImmSrc,
+                        output logic [1:0] PCSrc, ResultSrc,
+                        input logic [31:0] Instr,
+                        input logic Zero, Negative);
 
 logic [6:0] opcode;
-logic [3:0] funct3;
-logic [7:0] funct7;
+logic [2:0] funct3;
+logic [6:0] funct7;
 
 assign opcode = Instr[6:0];
 assign funct3 = Instr[14:12];
 assign funct7 = Instr[31:25];
 
-assign MemWrite = (opcode == 7'b0100011 && funct3 == 3'h2) ? 1 : 0; // only sw needs MemWrite = 1
-assign RegWrite = (opcode[5:0] == 6'b100011) ? 0 : 1;               // only sw, beq, bne, blt and bge need RegWrite = 0
-
 always_comb begin
-    case (opcode)
+    MemWrite = (opcode == 7'b0100011 && funct3 == 3'h2) ? 1 : 0; // only sw needs MemWrite = 1
+    RegWrite = (opcode[5:0] == 6'b100011) ? 0 : 1;               // only sw, beq, bne, blt and bge need RegWrite = 0
 
+    case (opcode)
         7'b0110011: begin
             ImmSrc = 3'bxxx;
             ALUSrc = 1'b0;
@@ -56,7 +56,6 @@ always_comb begin
             ALUControl = 5'bx0x10;
             ResultSrc = 2'b01;
             PCSrc = 2'b00;
-
         end
 
         7'b0100011: begin       // sw
@@ -87,7 +86,6 @@ always_comb begin
             ALUControl = 5'bxxxxx;
             ResultSrc = 2'b10;
             PCSrc = 2'b01;
-
         end
 
         7'b1100111: begin       // jalr
@@ -96,7 +94,6 @@ always_comb begin
             ALUControl = 5'bx0x10;
             ResultSrc = 2'b10;
             PCSrc = 2'b10;
-
         end
 
         7'b0110111: begin       // lui
@@ -105,7 +102,6 @@ always_comb begin
             ALUControl = 5'bxxxxx;
             ResultSrc = 2'b11;
             PCSrc = 2'b00;
-
         end
 
         default: begin
@@ -114,11 +110,8 @@ always_comb begin
             ALUControl = 5'bxxxxx;
             ResultSrc = 2'bxx;
             PCSrc = 2'bxx;
-
         end
-
     endcase
-
 end
 
 endmodule
