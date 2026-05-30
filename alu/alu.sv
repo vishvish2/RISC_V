@@ -1,7 +1,7 @@
 module alu (output logic [31:0] ALUResult,
-                output logic Zero, Negative,
-                input logic [31:0] A, B,
-                input logic [4:0] ALUControl);
+            output logic Zero, Negative,
+            input logic [31:0] A, B,
+            input logic [4:0] ALUControl);
 
 logic [31:0] y_add, y_sub, y_or, y_and, y_sll, y_srl, y_slt;
 

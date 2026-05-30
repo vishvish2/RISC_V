@@ -1,6 +1,6 @@
 module program_counter (output logic [31:0] PC,
-                            input logic [31:0] PCNext,
-                            input logic CLK, Reset);
+                        input logic [31:0] PCNext,
+                        input logic CLK, Reset);
 
 always_ff @ (posedge CLK)
 begin
