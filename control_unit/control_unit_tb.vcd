@@ -1,5 +1,5 @@
 $date
-	Sat May 30 15:46:20 2026
+	Sat May 30 15:50:30 2026
 $end
 $version
 	Icarus Verilog
@@ -190,20 +190,15 @@ b1 #
 b1 1
 1)
 #210000
-b0 #
-b0 1
 b101 .
+0)
 bx101xxxxx1100011 (
 bx101xxxxx1100011 +
 #220000
-b1 #
-b1 1
-0)
-#240000
 b0 #
 b0 1
 1)
-#250000
+#230000
 1"
 b1 #
 b1 1
@@ -219,7 +214,7 @@ b0 .
 b0 -
 b0xxxxxxxxxx000xxxxx1101111 (
 b0xxxxxxxxxx000xxxxx1101111 +
-#260000
+#240000
 b10 #
 b10 1
 bx0x10 '
@@ -231,7 +226,7 @@ b1100111 ,
 b100000 -
 b100000xxxxxxxxxx000xxxxx1100111 (
 b100000xxxxxxxxxx000xxxxx1100111 +
-#270000
+#250000
 b0 #
 b0 1
 b11 !
@@ -246,4 +241,4 @@ b110 .
 b0 -
 b0xxxxxxxxxx110xxxxx0110111 (
 b0xxxxxxxxxx110xxxxx0110111 +
-#280000
+#260000

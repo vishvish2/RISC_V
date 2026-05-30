@@ -8,13 +8,16 @@ logic [4:0] alucontrol;
 logic [2:0] immsrc;
 logic [1:0] pcsrc, resultsrc;
 logic [31:0] instr;
-control_unit dut (memwrite, alusrc, regwrite, alucontrol, immsrc, pcsrc, resultsrc, instr, zero, negative);
+
+control_unit dut (memwrite, alusrc, regwrite, alucontrol, immsrc, pcsrc,
+    resultsrc, instr, zero, negative);
 
 
 initial begin
     $dumpfile("control_unit/control_unit_tb.vcd");
     $dumpvars(0, control_unit_tb);
 
+    zero = 1'bx; negative = 1'bx;
     instr = 32'b0000000xxxxxxxxxx000xxxxx0110011; #10;  // add
     instr = 32'b0100000xxxxxxxxxx000xxxxx0110011; #10;  // sub
     instr = 32'b0000000xxxxxxxxxx110xxxxx0110011; #10;  // or
@@ -48,9 +51,9 @@ initial begin
     instr = 32'bxxxxxxxxxxxxxxxxx100xxxxx1100011;       // blt, negative = 1
     negative = 1'b1; #10;
 
-    instr = 32'bxxxxxxxxxxxxxxxxx101xxxxx1100011; #10;  // bge, negative = 0
+    instr = 32'bxxxxxxxxxxxxxxxxx101xxxxx1100011;       // bge, negative = 0
     negative = 1'b0; #10;
-    instr = 32'bxxxxxxxxxxxxxxxxx101xxxxx1100011; #10;  // bge, negative = 1
+    instr = 32'bxxxxxxxxxxxxxxxxx101xxxxx1100011;       // bge, negative = 1
     negative = 1'b1; #10;
 
     instr = 32'b0000000xxxxxxxxxx000xxxxx1101111; #10;  // jal
